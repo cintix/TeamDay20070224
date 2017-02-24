@@ -13,7 +13,7 @@ import android.widget.ListView;
 import com.google.gson.Gson;
 
 import java.util.ArrayList;
-import java.util.concurrent.TimeUnit;
+
 
 import teamday.is.tv2.dk.letsbeclients.models.Program;
 import teamday.is.tv2.dk.letsbeclients.models.ProgramSearch;
@@ -43,7 +43,6 @@ public class MainActivity extends Activity implements AdapterView.OnItemClickLis
     @Override
     protected void onStart() {
         super.onStart();
-
         addItems();
     }
 
