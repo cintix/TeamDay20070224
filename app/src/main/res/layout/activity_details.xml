@@ -10,8 +10,7 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:orientation="vertical"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="teamday.is.tv2.dk.letsbeclients.Details"
-    tools:showIn="@layout/activity_details">
+    tools:context="teamday.is.tv2.dk.letsbeclients.Details">
     <TextView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
