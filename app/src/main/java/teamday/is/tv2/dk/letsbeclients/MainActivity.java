@@ -3,7 +3,6 @@ package teamday.is.tv2.dk.letsbeclients;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -21,7 +20,7 @@ import teamday.is.tv2.dk.letsbeclients.models.ProgramSearch;
 import teamday.is.tv2.dk.letsbeclients.tasks.RestTask;
 
 public class MainActivity extends Activity implements AdapterView.OnItemClickListener {
-    private static final String ACTION_FOR_INTENT_CALLBACK = "THIS_IS_A_UNIQUE_KEY_WE_USE_TO_COMMUNICATE";
+    private static final String ACTION_FOR_INTENT_CALLBACK = "MY_EXCHANGE_KEY";
     private ArrayAdapter<String> adapter;
     private ListView listview;
     private Gson gson = new Gson();
@@ -39,9 +38,13 @@ public class MainActivity extends Activity implements AdapterView.OnItemClickLis
         listview = (ListView) findViewById(R.id.locaList);
         listview.setAdapter(adapter);
         listview.setOnItemClickListener(this);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
 
         addItems();
-
     }
 
 
@@ -52,7 +55,6 @@ public class MainActivity extends Activity implements AdapterView.OnItemClickLis
         for(Program program :search.getPrograms()) {
             adapter.add(program.getTitle());
         }
-
         adapter.notifyDataSetChanged();
         Log.d(this.getLocalClassName(), "Added items");
         progress.dismiss();
